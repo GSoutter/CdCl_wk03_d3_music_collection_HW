@@ -62,6 +62,15 @@ class Album
     return result.first()['artist_id']
   end
 
+  def Album.find_by_id(id) #read
+    sql = "SELECT * FROM albums WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    return nil if result.first() == nil
+
+    return result.map{|res| res['title']}
+  end
+
   def update()
     sql = "UPDATE albums SET
         (

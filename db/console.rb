@@ -71,5 +71,7 @@ album2.delete()
 
 artist2.delete()
 
-binding.pry
-nil
+p Album.find_by_id(album3.id)
+
+# binding.pry
+# nil
