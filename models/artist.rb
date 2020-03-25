@@ -33,7 +33,7 @@ class Artist
     SqlRunner.run(sql, [])
   end
 
-  def Artist.name_db(id)
+  def Artist.name_db(id) #read
     sql = "SELECT * FROM artists WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values)
@@ -41,5 +41,20 @@ class Artist
 
     return result.map{|res| res['name']}
   end
+
+  def update()
+    sql = "UPDATE artists SET
+
+          name
+        =
+          $1
+
+        WHERE id = $2"
+    values = [@name, @id]
+    SqlRunner.run(sql, values)
+
+  end
+
+
 
 end

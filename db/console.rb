@@ -60,11 +60,15 @@ p ""
 p "Get the artist for a particular album"
 p Artist.name_db(Album.artist_id_from_title(album2.title))
 
+album2.title = 'The Greys'
+album2.update()
 
+artist2.name = 'Starvin Marvin'
+artist2.update()
 
 # for album in all_albums
 #   p album['title']
 # end
 
-binding.pry
-nil
+# binding.pry
+# nil
