@@ -28,5 +28,9 @@ class Artist
     return result.map{|res| res['name']}
   end
 
+  def Artist.delete_all() #delete
+    sql = "DELETE FROM artists"
+    SqlRunner.run(sql, [])
+  end
 
 end

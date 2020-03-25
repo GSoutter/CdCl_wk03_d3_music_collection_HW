@@ -41,5 +41,10 @@ class Album
     return result.map{|res| res['title']}
   end
 
+  def Album.delete_all() #delete
+    sql = "DELETE FROM albums"
+    SqlRunner.run(sql, [])
+  end
+
 
 end
