@@ -41,10 +41,27 @@ class Album
     return result.map{|res| res['title']}
   end
 
+  def Album.list_all_artist(artist_id)  #read
+    sql = "SELECT * FROM albums WHERE artist_id = $1"
+    values = [artist_id]
+    result = SqlRunner.run(sql, values)
+
+    return result.map{|res| res['title']}
+  end
+
   def Album.delete_all() #delete
     sql = "DELETE FROM albums"
     SqlRunner.run(sql, [])
   end
+
+  def Album.artist_id_from_title(title)
+    sql = "SELECT artist_id FROM albums WHERE title = $1"
+    values = [title]
+    result = SqlRunner.run(sql, values)
+
+    return result.first()['artist_id']
+  end
+
 
 
 end

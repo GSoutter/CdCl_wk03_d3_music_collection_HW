@@ -33,4 +33,13 @@ class Artist
     SqlRunner.run(sql, [])
   end
 
+  def Artist.name_db(id)
+    sql = "SELECT * FROM artists WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    return nil if result.first() == nil
+
+    return result.map{|res| res['name']}
+  end
+
 end

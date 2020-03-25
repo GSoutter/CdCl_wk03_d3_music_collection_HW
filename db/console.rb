@@ -31,17 +31,40 @@ album1.save()
 
 album2 = Album.new({
   'title' => 'What\'s goin on',
-  'genre' => 'Indie Rock',
+  'genre' => 'Motown',
   'artist_id' => artist2.id
   })
 album2.save()
 
+album2 = Album.new({
+  'title' => 'Pedestrian Verse',
+  'genre' => 'Indie Rock',
+  'artist_id' => artist1.id
+  })
+album2.save()
+
+p "All Albums"
 p Album.list_all()
+p "All Artists"
 p Artist.list_all()
+
+p ""
+p "All albums by Frightned Rabbit"
+p Album.list_all_artist(artist1.id)
+
+p ""
+p "All albums by Frightned Rabbit"
+p Album.list_all_artist(artist1.id)
+
+p ""
+p "Get the artist for a particular album"
+p Artist.name_db(Album.artist_id_from_title(album2.title))
+
+
 
 # for album in all_albums
 #   p album['title']
 # end
 
-# binding.pry
-# nil
+binding.pry
+nil
