@@ -32,3 +32,13 @@ album2 = Album.new({
   'artist_id' => artist2.id
   })
 album2.save()
+
+p Album.list_all()
+p Artist.list_all()
+
+# for album in all_albums
+#   p album['title']
+# end
+
+# binding.pry
+# nil

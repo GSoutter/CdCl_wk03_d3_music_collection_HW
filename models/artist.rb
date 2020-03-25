@@ -20,5 +20,13 @@ class Artist
 
   end
 
+  def Artist.list_all()  #read
+    sql = "SELECT * FROM artists"
+
+    result = SqlRunner.run(sql, [])
+
+    return result.map{|res| res['name']}
+  end
+
 
 end

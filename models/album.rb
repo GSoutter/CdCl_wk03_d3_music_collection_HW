@@ -33,6 +33,13 @@ class Album
     @id = SqlRunner.run(sql, values)[0]['id'].to_i
   end
 
+  def Album.list_all()  #read
+    sql = "SELECT * FROM albums"
+
+    result = SqlRunner.run(sql, [])
+
+    return result.map{|res| res['title']}
+  end
 
 
 end
