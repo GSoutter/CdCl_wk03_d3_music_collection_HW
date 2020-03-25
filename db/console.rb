@@ -36,12 +36,12 @@ album2 = Album.new({
   })
 album2.save()
 
-album2 = Album.new({
+album3 = Album.new({
   'title' => 'Pedestrian Verse',
   'genre' => 'Indie Rock',
   'artist_id' => artist1.id
   })
-album2.save()
+album3.save()
 
 p "All Albums"
 p Album.list_all()
@@ -60,15 +60,16 @@ p ""
 p "Get the artist for a particular album"
 p Artist.name_db(Album.artist_id_from_title(album2.title))
 
-album2.title = 'The Greys'
-album2.update()
+album3.title = 'The Greys'
+album3.update()
 
 artist2.name = 'Starvin Marvin'
 artist2.update()
 
-# for album in all_albums
-#   p album['title']
-# end
+album2.delete()
 
-# binding.pry
-# nil
+
+artist2.delete()
+
+binding.pry
+nil
